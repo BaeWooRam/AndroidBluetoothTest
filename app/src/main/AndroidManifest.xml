@@ -28,8 +28,7 @@
         </activity>
 
         <receiver android:name=".MainActivity$BluetoothReceiver"
-            android:enabled="true"
-            android:exported="true"
+            android:exported="false"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
