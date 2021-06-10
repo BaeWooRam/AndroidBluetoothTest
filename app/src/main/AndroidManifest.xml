@@ -27,8 +27,25 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".MainActivity$BluetoothReceiver"
+        <activity android:name=".LocalBroadcastManagerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".LocalBroadcastManagerActivity$RSSPullService"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
+
+        <receiver android:name=".LocalBroadcastManagerActivity$LocalBroadReceiver"
             android:exported="false"
+            android:label="@string/app_name"/>
+
+        <receiver android:name=".MainActivity$BluetoothReceiver"
+            android:exported="true"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />

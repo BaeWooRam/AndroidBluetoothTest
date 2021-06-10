@@ -32,7 +32,9 @@ class MainActivity : AppCompatActivity() {
             unregisterReceiver(register)
     }
 
-    class BluetoothReceiver(private val tvTextView: TextView):BroadcastReceiver(){
+    class BluetoothReceiver(private val tvTextView:TextView?):BroadcastReceiver(){
+        constructor() : this(null)
+
         private val debugTag: String = "BluetoothReceiver"
 
         override fun onReceive(context: Context?, intent: Intent?) {
@@ -46,10 +48,10 @@ class MainActivity : AppCompatActivity() {
                     BluetoothAdapter.ERROR
                 )
                 when (state) {
-                    BluetoothAdapter.STATE_OFF -> tvTextView.text = "BluetoothAdapter.STATE_OFF"
-                    BluetoothAdapter.STATE_TURNING_OFF -> tvTextView.text = "BluetoothAdapter.STATE_TURNING_OFF"
-                    BluetoothAdapter.STATE_ON -> tvTextView.text = "BluetoothAdapter.STATE_ON"
-                    BluetoothAdapter.STATE_TURNING_ON -> tvTextView.text = "BluetoothAdapter.STATE_TURNING_ON"
+                    BluetoothAdapter.STATE_OFF -> tvTextView?.text = "BluetoothAdapter.STATE_OFF"
+                    BluetoothAdapter.STATE_TURNING_OFF -> tvTextView?.text = "BluetoothAdapter.STATE_TURNING_OFF"
+                    BluetoothAdapter.STATE_ON -> tvTextView?.text = "BluetoothAdapter.STATE_ON"
+                    BluetoothAdapter.STATE_TURNING_ON -> tvTextView?.text = "BluetoothAdapter.STATE_TURNING_ON"
                 }
             }
         }
