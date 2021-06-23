@@ -20,9 +20,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ShowPairedDevices"
+        app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvContents"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toTopOf="@id/btStartScan"/>
 
+    <Button
+        android:id="@+id/btStartScan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="스캔 시작"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnShowPairedDevices"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

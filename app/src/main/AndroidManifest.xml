@@ -3,6 +3,8 @@
     package="com.example.androidbluetoothtest">
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
     <application
         android:allowBackup="true"
@@ -12,6 +14,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidBluetoothTest">
         <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".ble.BleActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -35,10 +45,17 @@
             </intent-filter>
         </activity>
 
+        <service android:name=".ble.BleService"
+            android:exported="true"/>
+
         <service
             android:name=".LocalBroadcastManagerActivity$RSSPullService"
             android:exported="true"
             android:permission="android.permission.BIND_JOB_SERVICE"/>
+
+        <receiver android:name=".ble.GattUpdateReceiver"
+            android:exported="true"
+            android:label="@string/app_name"/>
 
         <receiver android:name=".LocalBroadcastManagerActivity$LocalBroadReceiver"
             android:exported="false"
